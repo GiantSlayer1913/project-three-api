@@ -15,6 +15,9 @@ const todoSchema = new mongoose.Schema({
   location: {
     type: String
   },
+  email: {
+    type: String,
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
