@@ -31,8 +31,11 @@ const router = express.Router()
 // INDEX
 // GET /todos
 router.get('/todos', requireToken, (req, res) => {
-  Todo.find()
+  Todo.find().populate('owner')
     .then(todos => {
+      // todos.forEach(todo =>
+      //   console.log(todo)
+      // )
       // `todos` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
